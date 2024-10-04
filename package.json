@@ -13,6 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "eslint-plugin-import": "^2.31.0",
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "eslint": "^9.11.1",
+    "globals": "^15.10.0"
   }
 }
