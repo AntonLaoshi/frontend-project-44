@@ -14,17 +14,17 @@ const playRound = () => {
     if (number === 2 || number === 3) {
       correctAnswer = 'yes';
       break;
-    } else if (number < 2 || number % i === 0 ) {
+    } else if (number < 2 || number % i === 0) {
       correctAnswer = 'no';
       break;
     } else {
-      correctAnswer = 'yes'
+      correctAnswer = 'yes';
     }
   }
   if (userAnswer.toLowerCase() === correctAnswer) {
     console.log('Correct!');
     return true;
-  } 
+  }
   console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
   return false;
 };
@@ -35,6 +35,6 @@ const playGame = () => {
       return;
     }
   }
-  console.log('Congratulations, ' + userName + '!');
+  console.log(`Congratulations, ${userName}!`);
 };
 playGame();
