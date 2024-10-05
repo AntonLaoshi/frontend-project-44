@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
+import { getNumber100 } from '../src/index.js';
 
 export var userName = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
 export var greeting = console.log('Hello, ' + userName + '!');
 
 console.log('What number is missing in the progression?');
-const getNumber = () => Math.round(Math.random() * 100);
 const playRound = () => {
     const blankIndex = Math.floor(Math.random() * 10);
     const increment = Math.ceil(Math.random() * 10);
     const progression = [];
-    let initial = getNumber();
+    let initial = getNumber100();
     for (let i = 0; i < 10; i++) {
             progression.push(initial);
             initial += increment;
