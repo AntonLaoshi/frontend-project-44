@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
+import { getNumber100 } from '../src/index.js';
 
 export var userName = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
 export var greeting = console.log('Hello, ' + userName + '!');
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
-const getNumber = () => Math.round(Math.random() * 100);
 const playRound = () => {
-    const number = getNumber();
+    const number = getNumber100();
     const userAnswer =  readlineSync.question('Question: ' + number + ' '); 
     console.log('Your answer: ' + userAnswer.toLowerCase());
     if (number % 2 ===0 && userAnswer.toLowerCase() === 'yes') {
@@ -25,7 +25,6 @@ const playRound = () => {
         return false;
     }
 };
-
 const playGame = () => {
     for (let i = 0; i < 3; i++) {
       const isCorrect = playRound();
@@ -35,6 +34,5 @@ const playGame = () => {
       }
     }
     console.log('Congratulations, ' + userName + '!');
-  };
-  
-  playGame();
+};
+playGame();
