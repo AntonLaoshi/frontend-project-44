@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { getNumber100 } from '../src/index.js';
+import { getNumber100, playGame } from '../src/index.js';
 
 export const userName = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
 export const greeting = console.log(`Hello, ${userName}!`);
@@ -22,13 +22,4 @@ const playRound = () => {
   console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
   return false;
 };
-const playGame = () => {
-  for (let i = 0; i < 3; i += 1) {
-    const isCorrect = playRound();
-    if (!isCorrect) {
-      return;
-    }
-  }
-  console.log(`Congratulations, ${userName}!`);
-};
-playGame();
+playGame(playRound, userName);
