@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
+import { getNumberCeil100 } from '../src/index.js';
 
 export var userName = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
 export var greeting = console.log('Hello, ' + userName + '!');
 console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-const getNumber = () => Math.ceil(Math.random() * 100);
 const playRound = () => {
-    const number = getNumber();
+    const number = getNumberCeil100();
     const userAnswer = readlineSync.question('Question: ' + number + ' ');
     console.log('Your answer: ' + userAnswer);
     let correctAnswer;
