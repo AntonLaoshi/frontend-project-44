@@ -10,15 +10,18 @@ const playRound = () => {
   const userAnswer = readlineSync.question(`Question: ${number} `);
   console.log(`Your answer: ${userAnswer}`);
   let correctAnswer;
-  for (let i = Math.floor(number / 2); i > 1; i -= 1) {
-    if (number === 2 || number === 3) {
-      correctAnswer = 'yes';
-      break;
-    } else if (number < 2 || number % i === 0) {
-      correctAnswer = 'no';
-      break;
-    } else {
-      correctAnswer = 'yes';
+  if (number === 2 || number === 3) {
+    correctAnswer = 'yes';
+  } else if (number < 2) {
+    correctAnswer = 'no';
+  } else {
+    for (let i = Math.round(number / 2); i > 1; i -= 1) {
+      if (number % i === 0) {
+        correctAnswer = 'no';
+        break;
+      } else {
+        correctAnswer = 'yes';
+      }
     }
   }
   if (userAnswer.toLowerCase() === correctAnswer) {
