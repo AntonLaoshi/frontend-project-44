@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
+import { getNumberCeil100 } from '../src/index.js';
 
 export var userName = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
 export var greeting = console.log('Hello, ' + userName + '!');
 
 console.log('Find the greatest common divisor of given numbers.');
-
-const getNumber = () => Math.ceil(Math.random() * 100);
-
 const playRound = () => {
-    const number1 = getNumber();
-    const number2 = getNumber();
+    const number1 = getNumberCeil100();
+    const number2 = getNumberCeil100();
     const userAnswer = readlineSync.question('Question: ' + number1 + ' ' + number2 + ' ');
     console.log('Your answer: ' + userAnswer);
     let minNumber;
