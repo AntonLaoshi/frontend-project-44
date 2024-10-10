@@ -2,11 +2,10 @@
 import readlineSync from 'readline-sync';
 import { getNumber100, giveAnswer, playGame } from '../index.js';
 
-
 export const userName = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
 export const greeting = console.log(`Hello, ${userName}!`);
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
-export const playEvenGame = () => { 
+export const playEvenGame = () => {
   const playRound = () => {
     const number = getNumber100();
     const userAnswer = readlineSync.question(`Question: ${number} `);

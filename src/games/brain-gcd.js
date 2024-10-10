@@ -27,5 +27,5 @@ export const playGcdGame = () => {
     }
     return giveAnswer(Number(userAnswer), correctAnswer, userName);
   };
-playGame(playRound, userName);
+  playGame(playRound, userName);
 };
