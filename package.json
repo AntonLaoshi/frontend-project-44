@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "type": "module",
   "version": "1.0.0",
-  "description": "Set of 5 math games [![Actions Status](https://github.com/AntonLaoshi/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AntonLaoshi/frontend-project-44/actions)", 
+  "description": "Set of 5 math games", 
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
