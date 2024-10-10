@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "type": "module",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/AntonLaoshi/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AntonLaoshi/frontend-project-44/actions)",
+  "description": "Set of 5 math games [![Actions Status](https://github.com/AntonLaoshi/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AntonLaoshi/frontend-project-44/actions)", 
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,7 @@
     "brain-progression": "bin/brain-progression.js",
     "brain-prime": "bin/brain-prime.js"
   },
-  "author": "",
+  "author": "Anton Kostiuk",
   "license": "ISC",
   "dependencies": {
     "readline-sync": "^1.4.10"
