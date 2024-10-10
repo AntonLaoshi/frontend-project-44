@@ -3,12 +3,13 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/0b8f2febe4d6769a2a79/maintainability)](https://codeclimate.com/github/AntonLaoshi/frontend-project-44/maintainability)
 
-"Brain Games" is a set of math games. It includes five games: Even, Calculator, Progression, Prime Number and Gratest Common Divisor. Each game consists of three rounds.
-Even: It is necessary to specify whether the number is even.
-Calculator: It is necessary to specify the result of the arithmetic operation (addition, subtraction or multiplication).
-Progression: It is necessary to specify the missing number in the number row.
-Prime Number: It is necessary to specify whether the number is prime.
-Gratest Common Divisor: It is necessary to specify the largest common divisor for two numbers.
+Игра "Brain Games" представляет собой набор из 5 математических игр. Она включает игры: Чётное - нечетное, Калькулятор, Прогрессия, Простое число и НОД (наибольший общий делитель).
+Игра "Чётное - нечётное": необходимо указать является ли представленное число чётным.
+Игра "Калькулятор": необходимо указать результат арифметического действия с двумя представленными числами.
+Игра "Прогрессия": необходимо указать пропущенное число в числовом ряду.
+Игра "Простое число": необходимо указать, является ли представленное число простым.
+Игра "НОД": необходимо указать наибольший общий делитель для двух представленных чисел.
+
 
 ## Setup
 
