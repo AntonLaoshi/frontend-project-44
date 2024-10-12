@@ -7,11 +7,14 @@ console.log('Find the greatest common divisor of given numbers.');
 const playGcdGame = () => {
   const playRound = () => {
     const getCorrect = (minNum, num1, num2) => {
+      let correct;
       for (let i = minNum; i > 0; i -= 1) {
         if (num1 % i === 0 && num2 % i === 0) {
-          return i;
+          correct = i;
+          break;
         }
       }
+      return correct;
     };
     const number1 = getNumber(1, 50);
     const number2 = getNumber(1, 50);
