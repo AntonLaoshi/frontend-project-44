@@ -15,7 +15,7 @@
     "brain-progression": "bin/brain-progression.js",
     "brain-prime": "bin/brain-prime.js"
   },
-  "author": "Anton Kostiuk",
+  "author": "ANTON KOSTIUK",
   "license": "ISC",
   "dependencies": {
     "readline-sync": "^1.4.10"
