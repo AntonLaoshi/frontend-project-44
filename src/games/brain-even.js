@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { getNumber, giveAnswer, playGame, greeting } from '../index.js';
+import {
+  getNumber, giveAnswer, playGame, greeting
+} from '../index.js';
 
 const userName = greeting();
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
