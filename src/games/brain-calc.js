@@ -1,28 +1,34 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { getNumber20, playGame, giveAnswer } from '../index.js';
+import { getNumber, playGame, giveAnswer, greeting } from '../index.js';
 
-export const userName = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
-export const greeting = console.log(`Hello, ${userName}!`);
+const userName = greeting();
 console.log('What is the result of the expression?');
 const operators = ['+', '-', '*'];
-
-export const playCalcGame = () => {
-  const playRound = () => {
-    const number1 = getNumber20();
-    const number2 = getNumber20();
-    const selectedOperatorIndex = Math.floor(Math.random() * operators.length);
-    let correctAnswer;
-    if (operators[selectedOperatorIndex] === '+') {
-      correctAnswer = number1 + number2;
-    } else if (operators[selectedOperatorIndex] === '-') {
-      correctAnswer = number1 - number2;
-    } else {
-      correctAnswer = number1 * number2;
+const playCalcGame = () => {
+  const getCorrect = (num1, num2, index) => {
+    let correct;
+    switch (operators[index]) {
+      case '+':
+        correct = num1 + num2;
+        break;
+      case '-':
+        correct = num1 - num2;
+        break;
+      default:
+        correct = num1 * num2;
     }
+    return correct;
+  };
+  const playRound = () => {
+    const number1 = getNumber(0, 20);
+    const number2 = getNumber(0, 20);
+    const selectedOperatorIndex = Math.floor(Math.random() * operators.length);
+    const correctAnswer = getCorrect(number1, number2, selectedOperatorIndex);
     const userAnswer = readlineSync.question(`Question: ${number1} ${operators[selectedOperatorIndex]} ${number2} `);
     console.log(`Your answer: ${userAnswer}`);
     return giveAnswer(Number(userAnswer), correctAnswer, userName);
   };
   playGame(playRound, userName);
 };
+export default playCalcGame;

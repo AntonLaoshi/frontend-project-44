@@ -1,31 +1,34 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { getNumberCeil100, playGame, giveAnswer } from '../index.js';
+import { getNumber, playGame, giveAnswer, greeting } from '../index.js';
 
-export const userName = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
-export const greeting = console.log(`Hello, ${userName}!`);
+const userName = greeting();
 console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-export const playPrimeGame = () => {
+const playPrimeGame = () => {
+  const getCorrect = (num) => {
+    switch (num) {
+      case 2:
+        return 'yes';
+      case 3:
+        return 'yes';
+      case num < 2:
+        return 'no';
+      default:
+        for (let i = Math.round(num / 2); i > 1; i -= 1) {
+          if (num % i === 0) {
+            return 'no';
+          }
+        }
+        return 'yes';
+    }
+  };
   const playRound = () => {
-    const number = getNumberCeil100();
+    const number = getNumber(1, 100);
     const userAnswer = readlineSync.question(`Question: ${number} `);
     console.log(`Your answer: ${userAnswer}`);
-    let correctAnswer;
-    if (number === 2 || number === 3) {
-      correctAnswer = 'yes';
-    } else if (number < 2) {
-      correctAnswer = 'no';
-    } else {
-      for (let i = Math.round(number / 2); i > 1; i -= 1) {
-        if (number % i === 0) {
-          correctAnswer = 'no';
-          break;
-        } else {
-          correctAnswer = 'yes';
-        }
-      }
-    }
+    const correctAnswer = getCorrect(number);
     return giveAnswer(userAnswer, correctAnswer, userName);
   };
   playGame(playRound, userName);
 };
+export default playPrimeGame;

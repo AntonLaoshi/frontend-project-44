@@ -1,17 +1,15 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { getNumber100, playGame, giveAnswer } from '../index.js';
+import { getNumber, playGame, giveAnswer, greeting } from '../index.js';
 
-export const userName = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
-export const greeting = console.log(`Hello, ${userName}!`);
-
+const userName = greeting();
 console.log('What number is missing in the progression?');
-export const playProgressionGame = () => {
+const playProgressionGame = () => {
   const playRound = () => {
     const blankIndex = Math.floor(Math.random() * 10);
     const increment = Math.ceil(Math.random() * 10);
     const progression = [];
-    let initial = getNumber100();
+    let initial = getNumber();
     for (let i = 0; i < 10; i += 1) {
       progression.push(initial);
       initial += increment;
@@ -24,3 +22,4 @@ export const playProgressionGame = () => {
   };
   playGame(playRound, userName);
 };
+export default playProgressionGame;
