@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import {
-  getNumber, giveAnswer, playGame, greeting
+  getNumber, giveAnswer, playGame, greeting,
 } from '../index.js';
 
 const userName = greeting();
