@@ -1,7 +1,16 @@
 #!/usr/bin/env node
-export const getNumber100 = () => Math.round(Math.random() * 100);
-export const getNumber20 = () => Math.round(Math.random() * 20);
-export const getNumberCeil100 = () => Math.ceil(Math.random() * 100);
+import readlineSync from 'readline-sync';
+
+export const greeting = () => {
+  const userName = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ')
+  console.log(`Hello, ${userName}!`);
+  return userName;
+};
+
+export const getNumber = (min = 0, max = 100) => {
+  return Math.floor(Math.random() * (max - min + 1) + min) ;
+};
+
 export const playGame = (fn, name) => {
   for (let i = 0; i < 3; i += 1) {
     const isCorrect = fn();
