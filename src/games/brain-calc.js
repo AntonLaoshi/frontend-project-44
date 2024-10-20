@@ -12,7 +12,7 @@ const playCalcGame = () => {
         return num1 + num2;
       case '-':
         return num1 - num2;
-      case '*': 
+      case '*':
         return num1 * num2;
       default:
         throw new Error('Unknown operation!');
@@ -23,7 +23,7 @@ const playCalcGame = () => {
     const max = 20;
     const number1 = getNumber(min, max);
     const number2 = getNumber(min, max);
-    const operators = ['+', '-', '*']
+    const operators = ['+', '-', '*'];
     const selectedOperatorIndex = getNumber(0, operators.length - 1);
     const correctAnswer = getCorrect(number1, number2, selectedOperatorIndex, operators);
     const userAnswer = readlineSync.question(`Question: ${number1} ${operators[selectedOperatorIndex]} ${number2} `);

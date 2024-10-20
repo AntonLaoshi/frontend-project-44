@@ -30,7 +30,7 @@ export const checkPrime = (num) => {
         }
         return true;
     }
-  }
+  };
   return (isPrime(num) ? 'yes' : 'no');
 };
 
@@ -56,4 +56,4 @@ export const giveAnswer = (userAnswer, correctAnswer, userName) => {
   }
   console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
   return false;
-}; 
+};
