@@ -1,32 +1,31 @@
-#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import {
   getNumber, playGame, giveAnswer, greeting,
 } from '../index.js';
 
-const userName = greeting();
-console.log('What is the result of the expression?');
-const operators = ['+', '-', '*'];
 const playCalcGame = () => {
-  const getCorrect = (num1, num2, index) => {
-    let correct;
-    switch (operators[index]) {
+  const userName = greeting();
+  console.log('What is the result of the expression?');
+  const getCorrect = (num1, num2, index, arr) => {
+    switch (arr[index]) {
       case '+':
-        correct = num1 + num2;
-        break;
+        return num1 + num2;
       case '-':
-        correct = num1 - num2;
-        break;
+        return num1 - num2;
+      case '*': 
+        return num1 * num2;
       default:
-        correct = num1 * num2;
+        throw new Error('Unknown operation!');
     }
-    return correct;
   };
   const playRound = () => {
-    const number1 = getNumber(0, 20);
-    const number2 = getNumber(0, 20);
-    const selectedOperatorIndex = Math.floor(Math.random() * operators.length);
-    const correctAnswer = getCorrect(number1, number2, selectedOperatorIndex);
+    const min = 0;
+    const max = 20;
+    const number1 = getNumber(min, max);
+    const number2 = getNumber(min, max);
+    const operators = ['+', '-', '*']
+    const selectedOperatorIndex = getNumber(0, operators.length - 1);
+    const correctAnswer = getCorrect(number1, number2, selectedOperatorIndex, operators);
     const userAnswer = readlineSync.question(`Question: ${number1} ${operators[selectedOperatorIndex]} ${number2} `);
     console.log(`Your answer: ${userAnswer}`);
     return giveAnswer(Number(userAnswer), correctAnswer, userName);

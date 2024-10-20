@@ -1,24 +1,29 @@
-#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import {
   getNumber, playGame, giveAnswer, greeting,
 } from '../index.js';
 
-const userName = greeting();
-console.log('What number is missing in the progression?');
 const playProgressionGame = () => {
-  const playRound = () => {
-    const blankIndex = Math.floor(Math.random() * 10);
-    const increment = Math.ceil(Math.random() * 10);
-    const progression = [];
-    let initial = getNumber();
+  const userName = greeting();
+  console.log('What number is missing in the progression?');
+  const getProg = () => {
+    const array = [];
+    let start = getNumber();
+    const minIncrement = 1;
+    const maxIncrement = 10;
+    const increm = getNumber(minIncrement, maxIncrement);
     for (let i = 0; i < 10; i += 1) {
-      progression.push(initial);
-      initial += increment;
+      array.push(start);
+      start += increm;
     }
-    const correctAnswer = progression[blankIndex];
-    progression[blankIndex] = '..';
-    const userAnswer = readlineSync.question(`Question: ${progression.join(' ')} `);
+    return array;
+  };
+  const playRound = () => {
+    const currentProgression = getProg();
+    const blankIndex = getNumber(0, currentProgression.length);
+    const correctAnswer = currentProgression[blankIndex];
+    currentProgression[blankIndex] = '..';
+    const userAnswer = readlineSync.question(`Question: ${currentProgression.join(' ')} `);
     console.log(`Your answer: ${userAnswer}`);
     return giveAnswer(Number(userAnswer), correctAnswer, userName);
   };
