@@ -20,7 +20,7 @@ const playProgressionGame = () => {
   };
   const playRound = () => {
     const currentProgression = getProg();
-    const blankIndex = getNumber(0, currentProgression.length);
+    const blankIndex = getNumber(0, currentProgression.length - 1);
     const correctAnswer = currentProgression[blankIndex];
     currentProgression[blankIndex] = '..';
     const userAnswer = readlineSync.question(`Question: ${currentProgression.join(' ')} `);
