@@ -1,20 +1,19 @@
 import readlineSync from 'readline-sync';
 import {
-  getNumber, giveAnswer, playGame, greeting,
-  checkEven,
+  getNumber, playGame, checkEven,
 } from '../index.js';
 
+
 const playEvenGame = () => {
-  const userName = greeting();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
   const playRound = () => {
     const number = getNumber();
     const userAnswer = readlineSync.question(`Question: ${number} `);
-    console.log(`Your answer: ${userAnswer.toLowerCase()}`);
+    console.log(`Your answer: ${userAnswer}`);
     const correctAnswer = checkEven(number);
-    return giveAnswer(userAnswer, correctAnswer, userName);
+    return [userAnswer, correctAnswer];
   };
-  playGame(playRound, userName);
+  playGame(playRound, rule);
 };
 
 export default playEvenGame;

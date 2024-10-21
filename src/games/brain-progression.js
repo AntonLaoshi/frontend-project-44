@@ -1,11 +1,10 @@
 import readlineSync from 'readline-sync';
 import {
-  getNumber, playGame, giveAnswer, greeting,
+  getNumber, playGame,
 } from '../index.js';
 
 const playProgressionGame = () => {
-  const userName = greeting();
-  console.log('What number is missing in the progression?');
+  const rule = 'What number is missing in the progression?';
   const getProg = () => {
     const array = [];
     let start = getNumber();
@@ -25,8 +24,8 @@ const playProgressionGame = () => {
     currentProgression[blankIndex] = '..';
     const userAnswer = readlineSync.question(`Question: ${currentProgression.join(' ')} `);
     console.log(`Your answer: ${userAnswer}`);
-    return giveAnswer(Number(userAnswer), correctAnswer, userName);
+    return [Number(userAnswer), correctAnswer];
   };
-  playGame(playRound, userName);
+  playGame(playRound, rule);
 };
 export default playProgressionGame;

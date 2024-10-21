@@ -1,11 +1,10 @@
 import readlineSync from 'readline-sync';
 import {
-  getNumber, playGame, giveAnswer, greeting,
+  getNumber, playGame,
 } from '../index.js';
 
 const playCalcGame = () => {
-  const userName = greeting();
-  console.log('What is the result of the expression?');
+  const rule = 'What is the result of the expression?';
   const getCorrect = (num1, num2, index, arr) => {
     switch (arr[index]) {
       case '+':
@@ -28,8 +27,8 @@ const playCalcGame = () => {
     const correctAnswer = getCorrect(number1, number2, selectedOperatorIndex, operators);
     const userAnswer = readlineSync.question(`Question: ${number1} ${operators[selectedOperatorIndex]} ${number2} `);
     console.log(`Your answer: ${userAnswer}`);
-    return giveAnswer(Number(userAnswer), correctAnswer, userName);
+    return [Number(userAnswer), correctAnswer];
   };
-  playGame(playRound, userName);
+  playGame(playRound, rule);
 };
 export default playCalcGame;
