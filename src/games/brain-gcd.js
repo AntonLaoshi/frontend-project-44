@@ -1,7 +1,5 @@
 import readlineSync from 'readline-sync';
-import {
-  getNumber, playGame,
-} from '../index.js';
+import { getNumber, playGame } from '../index.js';
 
 const playGcdGame = () => {
   const rule = 'Find the greatest common divisor of given numbers.';
