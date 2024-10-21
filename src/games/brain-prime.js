@@ -5,13 +5,14 @@ const playPrimeGame = () => {
   const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   const checkPrime = (num) => {
     const isPrime = () => {
+      if (num < 2) {
+        return false;
+      };
       switch (num) {
         case 2:
           return true;
         case 3:
           return true;
-        case num < 2:
-          return false;
         default:
           for (let i = Math.round(num / 2); i > 1; i -= 1) {
             if (num % i === 0) {
