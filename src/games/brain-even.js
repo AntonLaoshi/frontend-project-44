@@ -10,9 +10,9 @@ const playEvenGame = () => {
 
   const playRound = () => {
     const number = getNumber();
+    const correctAnswer = checkEven(number);
     const userAnswer = readlineSync.question(`Question: ${number} `);
     console.log(`Your answer: ${userAnswer}`);
-    const correctAnswer = checkEven(number);
     return [userAnswer, correctAnswer];
   };
   playGame(playRound, rule);

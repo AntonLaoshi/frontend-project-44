@@ -1,7 +1,5 @@
 import readlineSync from 'readline-sync';
-import {
-  getNumber, playGame,
-} from '../index.js';
+import { getNumber, playGame } from '../index.js';
 
 const playCalcGame = () => {
   const rule = 'What is the result of the expression?';
@@ -18,10 +16,8 @@ const playCalcGame = () => {
     }
   };
   const playRound = () => {
-    const min = 0;
-    const max = 20;
-    const number1 = getNumber(min, max);
-    const number2 = getNumber(min, max);
+    const number1 = getNumber();
+    const number2 = getNumber();
     const operators = ['+', '-', '*'];
     const selectedOperatorIndex = getNumber(0, operators.length - 1);
     const correctAnswer = getCorrect(number1, number2, selectedOperatorIndex, operators);

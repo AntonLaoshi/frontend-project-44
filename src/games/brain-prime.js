@@ -7,7 +7,7 @@ const playPrimeGame = () => {
     const isPrime = () => {
       if (num < 2) {
         return false;
-      };
+      }
       switch (num) {
         case 2:
           return true;
@@ -24,7 +24,6 @@ const playPrimeGame = () => {
     };
     return (isPrime(num) ? 'yes' : 'no');
   };
-
   const playRound = () => {
     const number = getNumber();
     const userAnswer = readlineSync.question(`Question: ${number} `);
